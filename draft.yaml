@@ -1,0 +1,16 @@
+models:
+  Api\Cadastros\VariedadeCultura:
+    empresa_id: uuid foreign
+    cultura_id: uuid foreign
+    id: uuid primary
+    nome: string unique
+    tecnologia: string nullable
+    ciclo: string nullable
+    qnt_estoque: double:10,2 nullable
+    status: boolean default:true
+    softDeletes: true
+
+
+controllers:
+  Api/Cadastros/VariedadeCultura:
+    resource: api

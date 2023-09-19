@@ -1,0 +1,19 @@
+created:
+    - app/Http/Controllers/Api/Cadastros/VariedadeCulturaController.php
+    - database/factories/Api/Cadastros/VariedadeCulturaFactory.php
+    - database/migrations/2023_09_19_151354_create_variedade_culturas_table.php
+    - app/Models/Api/Cadastros/VariedadeCultura.php
+    - tests/Feature/Http/Controllers/Api/Cadastros/VariedadeCulturaControllerTest.php
+    - app/Http/Requests/Api\Cadastros/VariedadeCulturaStoreRequest.php
+    - app/Http/Requests/Api\Cadastros/VariedadeCulturaUpdateRequest.php
+    - app/Http/Resources/Api\Cadastros/VariedadeCulturaCollection.php
+    - app/Http/Resources/Api\Cadastros/VariedadeCulturaResource.php
+updated:
+    - routes/api.php
+models:
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
+    Api\Cadastros\Empresa: { id: 'uuid primary', nome: 'string unique', cnpj: 'string unique', url: 'string nullable', email: 'string unique', telefone: 'string nullable', logo: 'string nullable', latitude: 'string nullable', longitute: 'string nullable', status: 'boolean default:true', softdeletes: softDeletes, timestamps: timestamps }
+    Api\Cadastros\AnoAgricula: { empresa_id: 'uuid foreign', id: 'uuid primary', nome: 'string unique', data_abertura: 'date nullable', data_fechamento: 'date nullable', status: 'boolean default:true', softdeletes: softDeletes, timestamps: timestamps }
+    Api\Cadastros\Safra: { empresa_id: 'uuid foreign', ano_agricula_id: 'uuid foreign', id: 'uuid primary', nome: 'string unique', data_abertura: 'date nullable', data_fechamento: 'date nullable', status: 'boolean default:true', softdeletes: softDeletes, timestamps: timestamps }
+    Api\Cadastros\Cultura: { empresa_id: 'uuid foreign', id: 'uuid primary', nome: 'string unique', status: 'boolean default:true', softdeletes: softDeletes }
+    Api\Cadastros\VariedadeCultura: { empresa_id: 'uuid foreign', cultura_id: 'uuid foreign', id: 'uuid primary', nome: 'string unique', tecnologia: 'string nullable', ciclo: 'string nullable', qnt_estoque: 'double:10,2 nullable', status: 'boolean default:true', softdeletes: softDeletes }

@@ -17,3 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::apiResource('empresa', App\Http\Controllers\Api\Cadastros\EmpresaController::class);
+
+
+Route::apiResource('ano-agricula', App\Http\Controllers\Api\Cadastros\AnoAgriculaController::class);
+
+
+Route::apiResource('safra', App\Http\Controllers\Api\Cadastros\SafraController::class);
+
+
+Route::apiResource('cultura', App\Http\Controllers\Api\Cadastros\CulturaController::class);
+
+
+Route::apiResource('variedade-cultura', App\Http\Controllers\Api\Cadastros\VariedadeCulturaController::class);
